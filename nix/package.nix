@@ -1,15 +1,15 @@
 {
   lib,
-  buildGo124Module,
+  buildGoModule,
   installShellFiles,
 }:
-buildGo124Module rec {
+buildGoModule rec {
   pname = "incus-compose";
   version = "latest";
 
   src = ./..;
 
-  vendorHash = "sha256-jP1ejPPPTtSrL+EToJQ0tX2owev0itiso71b+iYrDMI=";
+  vendorHash = "sha256-F22a3qto1YHHNRNqOpbdnKjgZLtglnG7aTcYFbAU52c=";
   subPackages = ["."];
 
   nativeBuildInputs = [
@@ -32,6 +32,6 @@ buildGo124Module rec {
     homepage = "https://github.com/bketelsen/incus-compose";
     license = licenses.mit;
     mainProgram = "incus-compose";
-    platforms = platforms.linux;
+    platforms = platforms.linux ++ platforms.darwin;
   };
 }

@@ -2,14 +2,17 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nxmatic-flake-commons.url = "github:nxmatic/nix-flake-commons/develop";
+    nixpkgs.follows = "nxmatic-flake-commons/nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
+    ...
   }: let
     supportedSystems = [
+      "aarch64-darwin"
       "aarch64-linux"
       "x86_64-linux"
     ];
